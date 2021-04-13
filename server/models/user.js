@@ -27,11 +27,12 @@ const User = new Schema({
         lowecase:true
 
     },
-    //passeword
+    //URL
     profile : {
         type: String,
         required: true
     },
+    //passeword
     hashed_password:{
         type: String,
         required: true
