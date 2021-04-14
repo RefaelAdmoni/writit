@@ -2,7 +2,7 @@ const articleService = require('../services/article');
 const scrapeService = require('../services/scraper');
 
 const createArticle = async (req, res) => {
-    const newArticle = await articleService.createArticle(req.body.title);
+    const newArticle = await articleService.createArticle(req.body.title,);
     res.json(newArticle);
 };
 

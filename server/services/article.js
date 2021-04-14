@@ -1,9 +1,12 @@
 const Article = require('../models/article');
 
-const createArticle = async (title, published) => {
+const createArticle = async (title, published, category, writerId) => {
     const article = new Article({
-        title : title
+        title : title,
+        category: category
     });
+
+    //i have to add writerId from user loged in..
 
     if (published)
         article.published = published;
@@ -19,12 +22,13 @@ const getArticles = async () => {
     return await Article.find({});
 };
 
-const updateArticle = async (id, title) => {
+const updateArticle = async (id, title, category) => {
     const article = await getArticleById(id);
     if (!article)
         return null;
 
     article.title = title;
+    article.category = category;
     await article.save();
     return article;
 };
